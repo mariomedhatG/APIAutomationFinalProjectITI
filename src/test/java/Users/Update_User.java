@@ -1,27 +1,35 @@
 package Users;
 
+import base.BaseTest;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Update_User {
+public class Update_User extends BaseTest {
     int SingleUser =2;
     @Test
     public void Update_User(){
-        Response res = RestAssured.given().headers("x-api-key","reqres-free-v1").header("Content-Type","application/json").
+        headers.put(headerKey , headerValue);
+        headers.put(contentTypeKey , contentTypeValue);
+
+        Response res = RestAssured.given().headers(headers).
                 body("{\n" +
                         "    \"name\": \"morpheus\",\n" +
                         "    \"job\": \"zion resident\"\n" +
-                        "}").when().put("https://reqres.in/api/users/"+ SingleUser).then().extract().response();
+                        "}").when().put(baseUrl + "api/users/"+ SingleUser).then().extract().response();
         Assert.assertEquals(res.statusCode(),200);
         String body = res.getBody().asPrettyString();
         System.out.println(body);
     }
+
     @Test
     public void getSingleUser_body() {
-        Response res =  RestAssured.given().headers("x-api-key","reqres-free-v1").header("Content-Type","application/json")
-                .when().put("https://reqres.in/api/users/"+ SingleUser).
+        headers.put(headerKey , headerValue);
+        headers.put(contentTypeKey , contentTypeValue);
+
+        Response res =  RestAssured.given().headers(headers)
+                .when().put(baseUrl + "api/users/"+ SingleUser).
                 then().extract().response();
         String body = res.getBody().asPrettyString();
         System.out.println(body);

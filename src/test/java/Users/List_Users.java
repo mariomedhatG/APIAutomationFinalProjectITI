@@ -1,15 +1,20 @@
 package Users;
 
+import base.BaseTest;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class List_Users {
+public class List_Users extends BaseTest  {
     @Test
     public void Get_List_Users() {
-        Response res = RestAssured.given().headers("x-api-key", "reqres-free-v1").queryParam("page", "2")
-                .when().get("https://reqres.in/api/users?page=2").
+        headers.put(headerKey , headerValue);
+        headers.put(contentTypeKey , contentTypeValue);
+
+        Response res = RestAssured
+                .given().headers(headers).queryParam("page", "2")
+                .when().get(baseUrl + "api/users?page=2").
                 then().extract().response();
         boolean status = res.statusCode() == 200;
         Assert.assertTrue(status, "Status code isn't 200");
@@ -17,9 +22,12 @@ public class List_Users {
 
     @Test
     public void getSingleUser_body() {
-        Response res = RestAssured.given()
-                .headers("x-api-key", "reqres-free-v1").queryParam("page", "2")
-                .when().get("https://reqres.in/api/users?page=2")
+        headers.put(headerKey , headerValue);
+        headers.put(contentTypeKey , contentTypeValue);
+
+        Response res = RestAssured
+                .given().headers(headers).queryParam("page", "2")
+                .when().get(baseUrl + "api/users?page=2")
                 .then().extract().response();
 
         String body = res.getBody().asPrettyString();

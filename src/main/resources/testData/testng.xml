@@ -2,7 +2,19 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="API Testing Suite" parallel="false">
 
-    <test name="GET Requests Test">
+    <test name="Users Test">
+        <classes>
+            <class name="Users.List_Users"/>
+            <class name="Users.Get_Single_User"/>
+            <class name="Users.Not_Found_User"/>
+            <class name="Users.Create_User"/>
+            <class name="Users.Update_User"/>
+            <class name="Users.UpdateUserPatch"/>
+            <class name="Users.Delete_User"/>
+        </classes>
+    </test>
+
+    <test name="Resources Test">
         <classes>
             <class name="Resources.GetListResources"/>
             <class name="Resources.GetSingleResources"/>
@@ -11,7 +23,14 @@
         </classes>
     </test>
 
-    <test name="POST Requests Test">
+    <test name="Register Test">
+        <classes>
+            <class name="Register.Valid_Register"/>
+            <class name="Register.Invalid_Register"/>
+        </classes>
+    </test>
+
+    <test name="Login Test">
         <classes>
             <class name="login.PostLoginSuccessFull"/>
             <class name="login.PostLoginUnsuccessFull"/>

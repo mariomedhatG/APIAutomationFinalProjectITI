@@ -1,16 +1,20 @@
 package Users;
 
+import base.BaseTest;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Get_Single_User {
+public class Get_Single_User extends BaseTest {
     int singleUserId= 2;
     @Test
     public void getSingleUser_body() {
-        Response res =  RestAssured.given().headers("x-api-key","reqres-free-v1").header("Content-Type","application/json")
-                .when().get("https://reqres.in/api/users/"+ singleUserId).
+        headers.put(headerKey , headerValue);
+        headers.put(contentTypeKey , contentTypeValue);
+
+        Response res =  RestAssured.given().headers(headers)
+                .when().get(baseUrl + "api/users/"+ singleUserId).
                 then().extract().response();
         String body = res.getBody().asPrettyString();
         System.out.println(body);
@@ -26,8 +30,11 @@ public class Get_Single_User {
     }
     @Test
     public void Get_Single_User() {
-        Response res =  RestAssured.given().headers("x-api-key","reqres-free-v1").header("Content-Type","application/json")
-                .when().get("https://reqres.in/api/users/"+ singleUserId).
+        headers.put(headerKey , headerValue);
+        headers.put(contentTypeKey , contentTypeValue);
+
+        Response res =  RestAssured.given().headers(headers)
+                .when().get(baseUrl + "api/users/"+ singleUserId).
                 then().extract().response();
         Assert.assertEquals(res.statusCode(),200);
     }
