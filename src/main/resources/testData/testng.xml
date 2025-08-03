@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API Testing Suite" parallel="false">
+
+    <test name="GET Requests Test">
+        <classes>
+            <class name="Resources.GetListResources"/>
+            <class name="Resources.GetSingleResources"/>
+            <class name="Resources.GetSingleResourcesNotFound"/>
+            <class name="Resources.DelayedResponse"/>
+        </classes>
+    </test>
+
+    <test name="POST Requests Test">
+        <classes>
+            <class name="login.PostLoginSuccessFull"/>
+            <class name="login.PostLoginUnsuccessFull"/>
+        </classes>
+    </test>
+
+</suite>
