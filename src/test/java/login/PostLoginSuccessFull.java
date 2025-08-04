@@ -1,5 +1,7 @@
 package login;
 
+import org.testng.annotations.BeforeMethod;
+import utility.Payload;
 import base.BaseTest;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
@@ -8,23 +10,29 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class PostLoginSuccessFull extends BaseTest {
+import java.util.HashMap;
+import java.util.Map;
 
+import static utility.Constant.*;
+import static utility.Constant.contentTypeValue;
+
+public class PostLoginSuccessFull extends BaseTest {
+    private Map<String, String> headers;
+    @BeforeMethod
+    public void setup() {
+        headers = new HashMap<>();
+        headers.put(headerKey, headerValue);
+        headers.put(contentTypeKey, contentTypeValue);
+    }
     @Test
     public void LoginSuccessFull(){
-        headers.put(headerKey , headerValue);
-        headers.put(contentTypeKey , contentTypeValue);
         SoftAssert softAssert = new SoftAssert();
 
         Response response = RestAssured
-                .given().headers(headers)
-                .body("{\n" +
-                        "\"email\": \"eve.holt@reqres.in\",\n" +
-                        "\"password\": \"cityslicka\"\n" + "}"
-                )
+                .given().spec(getRequestSpecWithHeaders())
+                .body(Payload.LoginBody())
                 .when().post(baseUrl + "api/login")
                 .then().statusCode(200).extract().response();
-
         JsonPath jsonPath = response.jsonPath();
         jsonPath.prettyPrint();
 

@@ -4,29 +4,29 @@
 
     <test name="Users Test">
         <classes>
-            <class name="Users.List_Users"/>
-            <class name="Users.Get_Single_User"/>
-            <class name="Users.Not_Found_User"/>
-            <class name="Users.Create_User"/>
-            <class name="Users.Update_User"/>
-            <class name="Users.UpdateUserPatch"/>
-            <class name="Users.Delete_User"/>
+            <class name="users.List_Users"/>
+            <class name="users.Get_Single_User"/>
+            <class name="users.Not_Found_User"/>
+            <class name="users.Create_User"/>
+            <class name="users.Update_User"/>
+            <class name="users.UpdateUserPatch"/>
+            <class name="users.Delete_User"/>
         </classes>
     </test>
 
     <test name="Resources Test">
         <classes>
-            <class name="Resources.GetListResources"/>
-            <class name="Resources.GetSingleResources"/>
-            <class name="Resources.GetSingleResourcesNotFound"/>
-            <class name="Resources.DelayedResponse"/>
+            <class name="resources.GetListResources"/>
+            <class name="resources.GetSingleResources"/>
+            <class name="resources.GetSingleResourcesNotFound"/>
+            <class name="resources.DelayedResponse"/>
         </classes>
     </test>
 
     <test name="Register Test">
         <classes>
-            <class name="Register.Valid_Register"/>
-            <class name="Register.Invalid_Register"/>
+            <class name="register.Valid_Register"/>
+            <class name="register.Invalid_Register"/>
         </classes>
     </test>
 
