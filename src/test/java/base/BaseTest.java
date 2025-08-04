@@ -1,15 +1,24 @@
 package base;
 
+
+import io.restassured.specification.RequestSpecification;
+
 import java.util.HashMap;
 import java.util.Map;
-
+import static utility.Constant.*;
 public class BaseTest {
 
-    protected String baseUrl = "https://reqres.in/";
-    protected Map<String , String> headers = new HashMap<>();
-    protected String headerKey = "x-api-key";
-    protected String headerValue = "reqres-free-v1";
-    protected String contentTypeKey = "Content-Type";
-    protected String contentTypeValue = "application/json";
-
+    protected RequestSpecification getRequestSpecWithHeaders() {
+        Map<String, String> headers = new HashMap<>();
+        headers.put(headerKey, headerValue);
+        headers.put(contentTypeKey, contentTypeValue);
+        return RequestSpecBuilderUtil.getRequestSpec(headers);
+    }
+    protected RequestSpecification getRequestSpecWithHeadersquery() {
+        Map<String, String> headers = new HashMap<>();
+        headers.put(headerKey, headerValue);
+        headers.put(contentTypeKey, contentTypeValue);
+        headers.put(queryKey, queryValue);
+        return RequestSpecBuilderUtil.getRequestSpec(headers);
+    }
 }
