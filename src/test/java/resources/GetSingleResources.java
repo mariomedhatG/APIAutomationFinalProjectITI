@@ -23,7 +23,7 @@ public class GetSingleResources extends BaseTest {
     public void SingleResources(){
         Response response = RestAssured.
                 given().spec(getRequestSpecWithHeaders()).
-                when().get(baseUrl + "api/unknown/2").
+                when().get(baseUrl + SingleListEndPoint).
                 then().extract().response();
 
         response.prettyPrint();

@@ -12,6 +12,10 @@ public class Constant {
     public static final String ListUserEndPoint = "api/users?page=2";
     public static final String UpdateUsersEndPoint = "api/users/2";
     public static final String RegisterUserEndPoint = "api/register";
+    public static final String LoginEndPoint = "api/login";
+    public static final String DelayedEndPoint = "api/users?delay=3";
+    public static final String ListEndPoint = "api/unknown";
+    public static final String SingleListEndPoint = "api/unknown/2";
     public static final int SingleUser = 2;
     public static final int NotFoundUser = 23;
 }

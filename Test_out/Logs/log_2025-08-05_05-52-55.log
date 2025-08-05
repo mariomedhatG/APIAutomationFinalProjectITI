@@ -1,0 +1,17 @@
+[INFO] 05-08-2025 05:52:55 [main] [utility.LogsUtility] - Status code is 201 Created
+[INFO] 05-08-2025 05:52:55 [main] [utility.LogsUtility] - Status code for List Users is 200
+[INFO] 05-08-2025 05:52:55 [main] [utility.LogsUtility] - Status code for Single User is 200
+[INFO] 05-08-2025 05:52:55 [main] [utility.LogsUtility] - User updated successfully
+[INFO] 05-08-2025 05:52:56 [main] [utility.LogsUtility] - User deleted successfully
+[INFO] 05-08-2025 05:52:56 [main] [utility.LogsUtility] - User Is Found
+[INFO] 05-08-2025 05:52:56 [main] [utility.LogsUtility] - status code for Register is 200
+[INFO] 05-08-2025 05:52:57 [main] [utility.LogsUtility] - Token is generated successfully after Register
+[INFO] 05-08-2025 05:52:57 [main] [utility.LogsUtility] - Login token received successfully
+[INFO] 05-08-2025 05:52:57 [main] [utility.LogsUtility] - Login response status code is 200
+[INFO] 05-08-2025 05:52:57 [main] [utility.LogsUtility] - Status code for List Users is 200
+[INFO] 05-08-2025 05:52:57 [main] [utility.LogsUtility] - status code for Register is 200
+[INFO] 05-08-2025 05:52:57 [main] [utility.LogsUtility] - Token is generated successfully after Register
+[INFO] 05-08-2025 05:52:57 [main] [utility.LogsUtility] - Login token received successfully
+[INFO] 05-08-2025 05:52:57 [main] [utility.LogsUtility] - Login response status code is 200
+[INFO] 05-08-2025 05:52:58 [main] [utility.LogsUtility] - status code for Register is 200
+[INFO] 05-08-2025 05:52:58 [main] [utility.LogsUtility] - Token is generated successfully after Register
