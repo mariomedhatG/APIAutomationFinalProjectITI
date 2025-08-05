@@ -1,4 +1,5 @@
 package register;
+import models.RegisterPayLoad;
 import org.testng.annotations.BeforeMethod;
 import utility.Payload;
 import base.BaseTest;
@@ -11,31 +12,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Valid_Register extends BaseTest {
+    RegisterPayLoad register;
     private Map<String, String> headers;
     @BeforeMethod
     public void setup() {
+        register = new RegisterPayLoad();
         headers = new HashMap<>();
         headers.put(headerKey, headerValue);
         headers.put(contentTypeKey, contentTypeValue);
-    }
-    @Test
-    public void Valid_Register_Body() {
-
-        Response res = RestAssured
-                .given().spec(getRequestSpecWithHeaders())
-                .body(Payload.ValidRegisterBody())
-                .when().post(baseUrl + "api/register")
-                .then().extract().response();
-        boolean status = res.statusCode() == 200;
-        System.out.println(status);
-        res.body().prettyPrint();
+        register.setEmail("eve.holt@reqres.in");
+        register.setPassword("pistol");
     }
     @Test
     public void Valid_Register_PrintID() {
 
         Response res = RestAssured
                 .given().spec(getRequestSpecWithHeaders())
-                .body(Payload.ValidRegisterBody())
+                .body(register)
                 .when().post(baseUrl + RegisterUserEndPoint).then().extract().response();
         Assert.assertTrue(res.statusCode() == 200);
         int id = res.jsonPath().getInt("id");
@@ -47,7 +40,7 @@ public class Valid_Register extends BaseTest {
 
         Response res = RestAssured
                 .given().spec(getRequestSpecWithHeaders())
-                .body(Payload.ValidRegisterBody())
+                .body(register)
                 .when().post(baseUrl + RegisterUserEndPoint)
                 .then().extract().response();
       Assert.assertTrue(res.statusCode() == 200);

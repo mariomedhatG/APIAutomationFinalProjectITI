@@ -31,7 +31,7 @@ public class PostLoginUnsuccessFull extends BaseTest {
         Response response = RestAssured
                 .given().spec(getRequestSpecWithHeaders())
                 .body(Payload.InvalidLoginBody())
-                .when().post(baseUrl + "api/login")
+                .when().post(baseUrl + LoginEndPoint)
                 .then().statusCode(400).extract().response();
 
         JsonPath jsonPath = response.jsonPath();

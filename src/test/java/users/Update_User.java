@@ -1,6 +1,7 @@
 package users;
 
 import base.RequestSpecBuilderUtil;
+import models.UpdateUserPayLoad;
 import org.testng.annotations.BeforeMethod;
 import utility.Payload;
 import base.BaseTest;
@@ -13,19 +14,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Update_User extends BaseTest {
+    UpdateUserPayLoad user;
     private Map<String, String> headers;
     @BeforeMethod
     public void setup() {
         headers = new HashMap<>();
         headers.put(headerKey, headerValue);
         headers.put(contentTypeKey, contentTypeValue);
+        user = new UpdateUserPayLoad();
+        user.setName("morpheus");
+        user.setJob("zion resident");
     }
     @Test
     public void Update_User(){
 
         Response res = RestAssured.
                 given().spec(getRequestSpecWithHeaders()).
-                body(Payload.UpdateBody())
+                body(user)
                 .when().put(baseUrl + UserEndPoint+ SingleUser)
                 .then().extract().response();
         Assert.assertEquals(res.statusCode(),200);
@@ -38,7 +43,7 @@ public class Update_User extends BaseTest {
 
         Response res =  RestAssured.given()
                 .spec(getRequestSpecWithHeaders())
-                .when().put(baseUrl + UserEndPoint+ SingleUser).
+                .when().get(baseUrl + UserEndPoint+ SingleUser).
                 then().extract().response();
         String body = res.getBody().asPrettyString();
         System.out.println(body);
@@ -49,5 +54,6 @@ public class Update_User extends BaseTest {
         Assert.assertNotNull(name, "name is null");
         Assert.assertNotNull(job, "Job is null");
         Assert.assertNotNull(updatedAt, "Date is null");
+        Assert.assertEquals(name, "Janet");
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API Testing Suite" parallel="false">
+    <groups>
+        <run>
+            <include name="E2E_Test"/>
+        </run>
+    </groups>
+    <test name="Run E2E Scenarios">
+        <classes>
+            <class name="e2e_scenario.E2E_Scenario"></class>
+        </classes>
+    </test>
+</suite>

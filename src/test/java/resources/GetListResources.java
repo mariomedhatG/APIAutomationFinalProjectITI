@@ -24,7 +24,7 @@ public class GetListResources extends BaseTest {
 
         Response response = RestAssured
                 .given().spec(getRequestSpecWithHeaders())
-                .when().get( baseUrl + "api/unknown")
+                .when().get( baseUrl + ListEndPoint)
                 .then().extract().response();
 
         response.prettyPrint();

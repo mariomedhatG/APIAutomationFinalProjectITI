@@ -2,6 +2,7 @@ package base;
 
 
 import io.restassured.specification.RequestSpecification;
+import org.testng.annotations.BeforeSuite;
 
 import java.util.HashMap;
 import java.util.Map;

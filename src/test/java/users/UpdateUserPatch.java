@@ -2,6 +2,7 @@ package users;
 
 import base.RequestSpecBuilderUtil;
 
+import models.UpdateUserPayLoad;
 import utility.Payload;
 import base.BaseTest;
 import io.restassured.RestAssured;
@@ -14,18 +15,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UpdateUserPatch extends BaseTest {
+    UpdateUserPayLoad user ;
     private Map<String, String> headers;
     @BeforeMethod
     public void setup() {
         headers = new HashMap<>();
         headers.put(headerKey, headerValue);
         headers.put(contentTypeKey, contentTypeValue);
+        user.setName("morpheus");
+        user.setJob("zion resident");
     }
     @Test
     public void PatchUser(){
         Response res = RestAssured
                 .given().spec(getRequestSpecWithHeaders()).
-                body(Payload.UpdateBody())
+                body(user)
                 .when().patch(baseUrl + UpdateUsersEndPoint)
                 .then().extract().response();
 

@@ -24,7 +24,7 @@ public class DelayedResponse extends BaseTest {
 
         Response response = RestAssured.
                 given().spec(getRequestSpecWithHeaders())
-                .when().get(baseUrl + "api/users?delay=3").
+                .when().get(baseUrl + DelayedEndPoint).
                 then().extract().response();
 
         response.prettyPrint();

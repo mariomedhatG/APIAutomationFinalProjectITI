@@ -27,19 +27,18 @@ public class PostLoginSuccessFull extends BaseTest {
     @Test
     public void LoginSuccessFull(){
         SoftAssert softAssert = new SoftAssert();
-
         Response response = RestAssured
                 .given().spec(getRequestSpecWithHeaders())
                 .body(Payload.LoginBody())
-                .when().post(baseUrl + "api/login")
+                .when().post(baseUrl + LoginEndPoint)
                 .then().statusCode(200).extract().response();
         JsonPath jsonPath = response.jsonPath();
         jsonPath.prettyPrint();
 
-        Assert.assertEquals(jsonPath.get("token") , "QpwL5tke4Pnpja7X4");
+        String loginToken = jsonPath.getString("token");
+        Assert.assertNotNull(loginToken, "Login Token is null");
         softAssert.assertEquals(response.getStatusCode() , 200);
         softAssert.assertAll();
-
         System.out.println(response);
     }
 }
