@@ -21,7 +21,6 @@ public class DelayedResponse extends BaseTest {
     }
     @Test
     public void DelayResponse(){
-
         Response response = RestAssured.
                 given().spec(getRequestSpecWithHeaders())
                 .when().get(baseUrl + DelayedEndPoint).

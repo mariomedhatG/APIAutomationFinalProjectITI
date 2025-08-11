@@ -5,6 +5,7 @@ import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import models.CreateUserPayload;
+import models.LoginPayLoad;
 import models.RegisterPayLoad;
 import models.UpdateUserPayLoad;
 import org.testng.Assert;
@@ -21,11 +22,13 @@ public class E2E_Scenario extends BaseTest {
     UpdateUserPayLoad user;
     RegisterPayLoad register;
     CreateUserPayload createUser;
+    LoginPayLoad login;
     private Map<String, String> headers;
     SoftAssert softAssert;
 
     @BeforeMethod(alwaysRun = true)
     public void setup() {
+        login = new LoginPayLoad();
         register = new RegisterPayLoad();
         user = new UpdateUserPayLoad();
         createUser = new CreateUserPayload();
@@ -38,6 +41,8 @@ public class E2E_Scenario extends BaseTest {
         register.setPassword("pistol");
         user.setName("morpheus");
         user.setJob("leader");
+        login.setEmail("eve.holt@reqres.in");
+        login.setPassword("cityslicka");
     }
     @Test(groups = {"E2E_Test"})
     public void Valid_Register()
@@ -72,7 +77,7 @@ public class E2E_Scenario extends BaseTest {
 
         Response LoginResponse = RestAssured
                 .given().spec(getRequestSpecWithHeaders())
-                .body(Payload.LoginBody())
+                .body(login)
                 .when().post(baseUrl + LoginEndPoint)
                 .then().statusCode(200).extract().response();
         JsonPath jsonPath = LoginResponse.jsonPath();
@@ -117,8 +122,8 @@ public class E2E_Scenario extends BaseTest {
                 .given().spec(getRequestSpecWithHeadersquery())
                 .when().get(baseUrl + ListUserEndPoint)
                 .then().extract().response();
-        boolean sttus = ListuserResponse.statusCode() == 200;
-        softAssert.assertTrue(sttus, "Status code isn't 200");
+        boolean status = ListuserResponse.statusCode() == 200;
+        softAssert.assertTrue(status, "Status code isn't 200");
         LogsUtility.info("Status code for List Users is 200");
         softAssert.assertAll();
     }

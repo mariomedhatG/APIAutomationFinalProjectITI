@@ -26,7 +26,26 @@ public class GetSingleResources extends BaseTest {
                 when().get(baseUrl + SingleListEndPoint).
                 then().extract().response();
 
-        response.prettyPrint();
-        Assert.assertEquals(response.getStatusCode() , 200);
+        String body = response.getBody().asPrettyString();
+        System.out.println(body);
+        int id = response.jsonPath().getInt("data.id");
+        String name = response.jsonPath().getString("data.name");
+        String year = response.jsonPath().getString("data.year");
+        String color = response.jsonPath().getString("data.color");
+        String pantoneValue = response.jsonPath().getString("data.pantone_value");
+
+        Assert.assertEquals(id, SingleResource, "Resource ID mismatch");
+        Assert.assertNotNull(name, "Name is null");
+        Assert.assertNotNull(year, "Year is null");
+        Assert.assertNotNull(color, "Color is null");
+        Assert.assertNotNull(pantoneValue, "Pantone Value is null");
+    }
+
+    @Test
+    public void getSingleResource(){
+        Response response =  RestAssured.given().spec(getRequestSpecWithHeaders())
+                .when().get(baseUrl + SingleListEndPoint)
+                .then().extract().response();
+        Assert.assertEquals(response.statusCode(),200);
     }
 }

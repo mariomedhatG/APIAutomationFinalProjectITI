@@ -46,7 +46,7 @@ public class Invalid_Register extends BaseTest {
                 .body(register)
                 .when().post(baseUrl + RegisterUserEndPoint)
                 .then().extract().response();
-        boolean status = res.statusCode() == 200;
+        boolean status = res.statusCode() == 400;
         Assert.assertTrue(status);
     }
 }

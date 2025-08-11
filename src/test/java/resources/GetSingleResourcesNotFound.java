@@ -24,9 +24,9 @@ public class GetSingleResourcesNotFound extends BaseTest {
 
         Response response = RestAssured.
                 given().spec(getRequestSpecWithHeaders()).
-                when().get(baseUrl + SingleListEndPoint).
+                when().get(baseUrl + SingleListNotFoundEndPoint).
                 then().extract().response();
-        response.prettyPrint();
-        Assert.assertEquals(response.getStatusCode() , 200);
+        boolean status = response.statusCode() == 404;
+        Assert.assertTrue(status,"Resource Is Found");
     }
 }

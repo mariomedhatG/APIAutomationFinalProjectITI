@@ -1,9 +1,6 @@
 package users;
 
-import base.RequestSpecBuilderUtil;
-
 import models.UpdateUserPayLoad;
-import utility.Payload;
 import base.BaseTest;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -19,6 +16,7 @@ public class UpdateUserPatch extends BaseTest {
     private Map<String, String> headers;
     @BeforeMethod
     public void setup() {
+        user = new UpdateUserPayLoad();
         headers = new HashMap<>();
         headers.put(headerKey, headerValue);
         headers.put(contentTypeKey, contentTypeValue);

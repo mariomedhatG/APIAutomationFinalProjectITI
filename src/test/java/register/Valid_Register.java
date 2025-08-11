@@ -1,7 +1,6 @@
 package register;
 import models.RegisterPayLoad;
 import org.testng.annotations.BeforeMethod;
-import utility.Payload;
 import base.BaseTest;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;

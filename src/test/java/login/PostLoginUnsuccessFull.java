@@ -1,5 +1,6 @@
 package login;
 
+import models.LoginPayLoad;
 import org.testng.annotations.BeforeMethod;
 import utility.Payload;
 import base.BaseTest;
@@ -17,12 +18,15 @@ import static utility.Constant.*;
 import static utility.Constant.contentTypeValue;
 
 public class PostLoginUnsuccessFull extends BaseTest {
+    LoginPayLoad login;
     private Map<String, String> headers;
     @BeforeMethod
     public void setup() {
+        login = new LoginPayLoad();
         headers = new HashMap<>();
         headers.put(headerKey, headerValue);
         headers.put(contentTypeKey, contentTypeValue);
+        login.setEmail("peter@klaven");
     }
     @Test
     public void LoginUnsuccessFull (){
@@ -30,7 +34,7 @@ public class PostLoginUnsuccessFull extends BaseTest {
 
         Response response = RestAssured
                 .given().spec(getRequestSpecWithHeaders())
-                .body(Payload.InvalidLoginBody())
+                .body(login)
                 .when().post(baseUrl + LoginEndPoint)
                 .then().statusCode(400).extract().response();
 

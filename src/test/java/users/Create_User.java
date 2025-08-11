@@ -10,6 +10,8 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 import static utility.Constant.*;
+
+
 public class Create_User extends BaseTest {
     CreateUserPayload user;
     private Map<String, String> headers;

@@ -16,6 +16,8 @@ public class Constant {
     public static final String DelayedEndPoint = "api/users?delay=3";
     public static final String ListEndPoint = "api/unknown";
     public static final String SingleListEndPoint = "api/unknown/2";
+    public static final String SingleListNotFoundEndPoint = "api/unknown/23";
     public static final int SingleUser = 2;
+    public static final int SingleResource = 2;
     public static final int NotFoundUser = 23;
 }

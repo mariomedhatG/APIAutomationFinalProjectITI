@@ -1,0 +1,1 @@
+{"uuid":"4217147a-01ea-44e1-a52f-d2ead1bcd94e","name":"register.Invalid_Register.setup","children":["b1f317f8-c247-462a-b643-35361b1e1b8a"],"description":"","befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1754910213763,"stop":1754910213763}],"afters":[],"start":1754910213763,"stop":1754910213763}
