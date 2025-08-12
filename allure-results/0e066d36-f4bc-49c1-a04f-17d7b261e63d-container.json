@@ -1,0 +1,1 @@
+{"uuid":"0e066d36-f4bc-49c1-a04f-17d7b261e63d","name":"e2e_scenario.E2E_Scenario.setup","children":["a994a565-7b76-4211-9c96-443b2a7ef9e4"],"description":"","befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1754959762299,"stop":1754959762300}],"afters":[],"start":1754959762299,"stop":1754959762300}
