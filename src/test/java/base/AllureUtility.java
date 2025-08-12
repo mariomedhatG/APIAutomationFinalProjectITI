@@ -7,6 +7,6 @@ import java.io.File;
 public class AllureUtility {
     public static void cleanAllureResults()
     {
-        FileUtils.deleteQuietly(new File("Test_out/allure-reslult"));
+        FileUtils.deleteQuietly(new File("allure-results"));
     }
 }
