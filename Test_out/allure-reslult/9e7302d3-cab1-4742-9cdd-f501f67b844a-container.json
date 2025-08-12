@@ -1,1 +1,0 @@
-{"uuid":"9e7302d3-cab1-4742-9cdd-f501f67b844a","name":"register.Valid_Register.setup","children":["b979353a-4094-4a13-94a6-e4c56bd67725"],"description":"","befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1754910741511,"stop":1754910741511}],"afters":[],"start":1754910741511,"stop":1754910741511}

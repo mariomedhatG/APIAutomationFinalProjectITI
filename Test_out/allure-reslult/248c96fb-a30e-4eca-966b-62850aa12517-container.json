@@ -1,1 +1,0 @@
-{"uuid":"248c96fb-a30e-4eca-966b-62850aa12517","name":"register.Valid_Register.setup","children":["75fb1755-59ec-48d8-b5d3-8a8d2e2fdf18"],"description":"","befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1754910213166,"stop":1754910213168}],"afters":[],"start":1754910213166,"stop":1754910213168}
