@@ -184,7 +184,7 @@ mvn allure:serve
 
 ---
 
-## 🤖 Jenkins (Theoretical Overview)
+## 🤖 Jenkins
 
 Jenkins is an open-source **CI/CD tool** used for automating software development processes.  
 
