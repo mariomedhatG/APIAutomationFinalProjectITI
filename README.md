@@ -127,7 +127,7 @@ newman run "D:\Desktop\Reqres_API Project.postman_collection.json" -e "D:\Deskto
 ```
 ### 📸 CLI Report:
 
-![CLI Report](Newman with CLI report.png)
+![CLI Report](https://github.com/mariomedhatG/APIAutomationFinalProjectITI/blob/main/Newman%20with%20CLI%20report.png)
 
 ### 🌐 Run Collection with HTML Extra Report
 
@@ -136,6 +136,6 @@ newman run "D:\Desktop\Reqres_API Project.postman_collection.json" -e "D:\Deskto
 ```
 ### 📸 HTML Extra Report:
 
-![HTML Extra Report](Newman report.png)
+![HTML Extra Report](https://github.com/mariomedhatG/APIAutomationFinalProjectITI/blob/main/Newman%20report.png)
 
 
