@@ -13,6 +13,18 @@ The goal of the project is to cover both **Manual** and **Automation Testing** t
 
 ---
 
+## 📑 Prerequisites
+Before running the project, make sure the following tools are installed:
+- **Java JDK 21**
+- **Maven**
+- **Postman** (for manual testing)
+- **Newman** (for running Postman collections via CLI)
+- **Jenkins** (for CI/CD, theoretical usage)
+- **Allure** (for generating and viewing test reports)
+- **Git** (to clone the repository)
+
+---
+
 ## 📌 API Endpoints Tested  
 
 | Method   | Endpoint                | Description |
@@ -118,6 +130,7 @@ API-Automation-FinalProject-ITI/
 │── README.md # Project documentation
 ```
 ---
+
 ## ▶️ Running Postman Collection  
 
 ### 🚀 Run Collection with CLI Report  
@@ -138,4 +151,56 @@ newman run "D:\Desktop\Reqres_API Project.postman_collection.json" -e "D:\Deskto
 
 ![HTML Extra Report](https://github.com/mariomedhatG/APIAutomationFinalProjectITI/blob/main/Newman%20report.png)
 
+---
+
+## ▶️ How to Run  
+
+Clone the repository:  
+```bash
+git clone https://github.com/mariomedhatG/APIAutomationFinalProjectITI
+cd APIAutomationFinalProjectITI
+```
+--- 
+
+## ▶️ Run the tests using Maven profiles 
+
+### 🟡 Run Testing Suite
+```bash
+ mvn clean test -Ptesting
+```
+### 🟢 Run E2E Tests
+```bash
+mvn clean test -Pe2e
+```
+--- 
+
+## 📊 Allure Reports To generate and view Allure reports after test execution, run:
+```bash
+mvn allure:serve
+```
+## 📸 Sample Allure Reports 
+
+![ِAllure Report](https://github.com/mariomedhatG/APIAutomationFinalProjectITI/blob/main/report.jpg)
+
+---
+
+## 🤖 Jenkins (Theoretical Overview)
+
+Jenkins is an open-source **CI/CD tool** used for automating software development processes.  
+
+## ✅  Key Points
+- **Automation**: Helps automate repetitive tasks like building, testing, and deploying applications.
+- **Extensibility**: Supports plugins to integrate with various tools and technologies.
+- **REST API**: Provides a programmatic interface to interact with Jenkins remotely.
+- **Continuous Integration/Delivery**: Facilitates faster and more reliable software delivery by integrating code changes frequently.
+
+---
+
+## 👥 Authors
+
+- **Nour Allah Khaled**  
+  [LinkedIn](https://www.linkedin.com/in/nour-allah-khaled)
+
+- **Mario Khalil**  
+  [LinkedIn](https://www.linkedin.com/in/mario-khalil-4448201a9/)
 
