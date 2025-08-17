@@ -198,9 +198,7 @@ Jenkins is an open-source **CI/CD tool** used for automating software developmen
 
 ## 👥 Authors
 
-- **Nour Allah Khaled**  
-  [LinkedIn](https://www.linkedin.com/in/nour-allah-khaled)
+- **Nour Allah Khaled**: [LinkedIn](https://www.linkedin.com/in/nour-allah-khaled)
 
-- **Mario Khalil**  
-  [LinkedIn](https://www.linkedin.com/in/mario-khalil-4448201a9/)
+- **Mario Khalil**: [LinkedIn](https://www.linkedin.com/in/mario-khalil-4448201a9/)
 
