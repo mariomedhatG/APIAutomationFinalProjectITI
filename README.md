@@ -190,7 +190,7 @@ mvn clean test -Pe2e
 
 ## 📊 Allure Reports To generate and view Allure reports after test execution, run:
 ```bash
-mvn allure:serve
+allure serve allure-results
 ```
 ## 📸 Sample Allure Reports 
 
