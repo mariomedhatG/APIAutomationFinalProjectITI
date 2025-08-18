@@ -51,13 +51,17 @@ Before running the project, make sure the following tools are installed:
 ---
 
 ## 🤖 Automation Testing (Rest Assured + TestNG)  
+
 - Automated scripts were developed using **Java**, **Rest Assured**, and **TestNG**.  
 - Covers CRUD operations, authentication, and error-handling scenarios.  
+- **POJO-based models (`models/`)** were created for request/response payloads to ensure better maintainability and reusability.  
+- **Serialization & Deserialization** were applied to seamlessly convert between Java objects and JSON during API requests and responses.  
+- **RequestSpecBuilderUtil (`base/`)** was implemented to configure a reusable **Request Specification Builder**, allowing standardized setup for base URI, headers, and content type across all tests.  
+- **TestNG** was used for test execution, grouping, parameterization, and suite management (via `testing.xml` and `e2e.xml`).  
 - Assertions were applied for:  
   - Status Codes ✅  
   - Response Body ✅  
   - Response Time ✅  
-
 ---
 
 ## 📂 Project Structure  
@@ -131,6 +135,16 @@ API-Automation-FinalProject-ITI/
 ```
 ---
 
+## 🏆 Best Practices Used  
+
+- **POJO Models (`models/`)** → Created dedicated classes for request/response payloads to keep test data structured, reusable, and easy to maintain.  
+- **Request Specification Builder (`RequestSpecBuilderUtil`)** → Centralized configuration of base URI, headers, and content type for all API requests, ensuring consistency across tests.  
+- **Logging Utility (`LogsUtility`)** → Implemented structured logging to track request/response details during execution.  
+- **Allure Reporting** → Integrated Allure for rich, interactive reports with test steps, attachments, and execution details.  
+- **TestNG Framework (`testing.xml`, `e2e.xml`)** → Used for test organization, grouping, suite management, and supporting parallel execution.  
+- **Separation of Concerns** → Clear project structure separating base setup, payload models, utilities, and test cases for maintainability.  
+
+---
 ## ▶️ Running Postman Collection  
 
 ### 🚀 Run Collection with CLI Report  
