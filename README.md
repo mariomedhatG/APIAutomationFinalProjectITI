@@ -1,0 +1,218 @@
+# 🚀 API Testing Project - ReqRes  
+
+## 🔹 Overview  
+This project focuses on **API Testing** for [ReqRes](https://reqres.in/), a publicly available RESTful API designed for learning and testing.  
+The goal of the project is to cover both **Manual** and **Automation Testing** to ensure that the provided endpoints behave as expected under various scenarios.  
+
+### Key Highlights:  
+- Manual API testing using **Postman**.  
+- Automated API testing with **Rest Assured** (Java) and **TestNG**.  
+- Test execution and reporting using **Newman** & **Allure Reports**.  
+- CI/CD pipeline integration with **Jenkins** for continuous testing.  
+- Coverage of all available endpoints (CRUD operations, authentication, delayed responses, etc.).  
+
+---
+
+## 📑 Prerequisites
+Before running the project, make sure the following tools are installed:
+- **Java JDK 21**
+- **Maven**
+- **Postman** (for manual testing)
+- **Newman** (for running Postman collections via CLI)
+- **Jenkins** (for CI/CD, theoretical usage)
+- **Allure** (for generating and viewing test reports)
+- **Git** (to clone the repository)
+
+---
+
+## 📌 API Endpoints Tested  
+
+| Method   | Endpoint                | Description |
+|----------|-------------------------|-------------|
+| **GET**  | `/api/users?page=2`     | Retrieve list of users (with pagination). |
+| **GET**  | `/api/users/{id}`       | Retrieve a single user by ID. |
+| **POST** | `/api/users`            | Create a new user. |
+| **PUT**  | `/api/users/{id}`       | Update an existing user. |
+| **PATCH**| `/api/users/{id}`       | Partially update user details. |
+| **DELETE** | `/api/users/{id}`     | Delete a user. |
+| **POST** | `/api/register`         | Register a new user (successful & unsuccessful cases). |
+| **POST** | `/api/login`            | Login with valid/invalid credentials. |
+| **GET**  | `/api/unknown`          | Retrieve list of resources (e.g., colors). |
+| **GET**  | `/api/unknown/{id}`     | Retrieve a single resource by ID. |
+| **GET**  | `/api/users?delay=3`    | Test delayed responses (simulate server delay). |
+
+---
+
+## 📝 Manual Testing (Postman)  
+- Test cases were written and executed in **Postman**.  
+- Collections cover positive, negative, and boundary scenarios.  
+- Validated response codes, response body schema, and headers.  
+
+---
+
+## 🤖 Automation Testing (Rest Assured + TestNG)  
+
+- Automated scripts were developed using **Java**, **Rest Assured**, and **TestNG**.  
+- Covers CRUD operations, authentication, and error-handling scenarios.  
+- **POJO-based models (`models/`)** were created for request/response payloads to ensure better maintainability and reusability.  
+- **Serialization & Deserialization** were applied to seamlessly convert between Java objects and JSON during API requests and responses.  
+- **RequestSpecBuilderUtil (`base/`)** was implemented to configure a reusable **Request Specification Builder**, allowing standardized setup for base URI, headers, and content type across all tests.  
+- **TestNG** was used for test execution, grouping, parameterization, and suite management (via `testing.xml` and `e2e.xml`).  
+- Assertions were applied for:  
+  - Status Codes ✅  
+  - Response Body ✅  
+  - Response Time ✅  
+---
+
+## 📂 Project Structure  
+```plaintext
+API-Automation-FinalProject-ITI/
+│── .idea/ # IntelliJ project settings
+│── allure-results/ # Allure raw results
+│
+│── src/
+│ ├── main/
+│ │ └── java/
+│ │ ├── models/ # Request/Response payload models
+│ │ │ ├── CreateUserPayload
+│ │ │ ├── LoginPayLoad
+│ │ │ ├── RegisterPayLoad
+│ │ │ └── UpdateUserPayLoad
+│ │ │
+│ │ ├── utility/ # Utility classes
+│ │ │ ├── Constant
+│ │ │ ├── LogsUtility
+│ │ │ └── Payload
+│ │ │
+│ │ └── resources/ # Configuration files
+│ │ ├── allure.properties
+│ │ └── log4j2.properties
+│ │
+│ └── test/
+│ └── java/
+│ ├── base/ # Base classes and setup
+│ │ ├── AllureUtility
+│ │ ├── BaseTest
+│ │ └── RequestSpecBuilderUtil
+│ │
+│ ├── e2e_scenario/ # End-to-End test cases
+│ │ └── E2E_Scenario
+│ │
+│ ├── login/ # Login API test cases
+│ │ ├── PostLoginSuccessFull
+│ │ └── PostLoginUnsuccessFull
+│ │
+│ ├── register/ # Register API test cases
+│ │ ├── Invalid_Register
+│ │ └── Valid_Register
+│ │
+│ ├── resources/ # Resources API test cases
+│ │ ├── DelayedResponse
+│ │ ├── GetListResources
+│ │ ├── GetSingleResources
+│ │ └── GetSingleResourcesNotFound
+│ │
+│ └── users/ # User API test cases
+│ ├── Create_User
+│ ├── Delete_User
+│ ├── Get_Single_User
+│ ├── List_Users
+│ ├── Not_Found_User
+│ ├── Update_User
+│ └── UpdateUserPatch
+│
+│── testdata/ # Test data files
+│ ├── e2e.xml
+│ └── testing.xml
+│
+│── Test_out/
+│ └── Logs/ # Execution logs
+│
+│── target/ # Build output (generated by Maven)
+│
+│── pom.xml # Maven dependencies and plugins
+│── README.md # Project documentation
+```
+---
+
+## 🏆 Best Practices Used  
+
+- **POJO Models (`models/`)** → Created dedicated classes for request/response payloads to keep test data structured, reusable, and easy to maintain.  
+- **Request Specification Builder (`RequestSpecBuilderUtil`)** → Centralized configuration of base URI, headers, and content type for all API requests, ensuring consistency across tests.  
+- **Logging Utility (`LogsUtility`)** → Implemented structured logging to track request/response details during execution.  
+- **Allure Reporting** → Integrated Allure for rich, interactive reports with test steps, attachments, and execution details.  
+- **TestNG Framework (`testing.xml`, `e2e.xml`)** → Used for test organization, grouping, suite management, and supporting parallel execution.  
+- **Separation of Concerns** → Clear project structure separating base setup, payload models, utilities, and test cases for maintainability.  
+
+---
+## ▶️ Running Postman Collection  
+
+### 🚀 Run Collection with CLI Report  
+
+```bash
+newman run "D:\Desktop\Reqres_API Project.postman_collection.json" -e "D:\Desktop\API_Project.postman_environment.json" -r cli
+```
+### 📸 CLI Report:
+
+![CLI Report](https://github.com/mariomedhatG/APIAutomationFinalProjectITI/blob/main/Newman%20with%20CLI%20report.png)
+
+### 🌐 Run Collection with HTML Extra Report
+
+```bash
+newman run "D:\Desktop\Reqres_API Project.postman_collection.json" -e "D:\Desktop\API_Project.postman_environment.json" -r htmlextra --reporter-htmlextra-export "D:\Desktop\reqres-report.html"
+```
+### 📸 HTML Extra Report:
+
+![HTML Extra Report](https://github.com/mariomedhatG/APIAutomationFinalProjectITI/blob/main/Newman%20report.png)
+
+---
+
+## ▶️ How to Run  
+
+Clone the repository:  
+```bash
+git clone https://github.com/mariomedhatG/APIAutomationFinalProjectITI
+cd APIAutomationFinalProjectITI
+```
+--- 
+
+## ▶️ Run the tests using Maven profiles 
+
+### 🟡 Run Testing Suite
+```bash
+ mvn clean test -Ptesting
+```
+### 🟢 Run E2E Tests
+```bash
+mvn clean test -Pe2e
+```
+--- 
+
+## 📊 Allure Reports To generate and view Allure reports after test execution, run:
+```bash
+allure serve allure-results
+```
+## 📸 Sample Allure Reports 
+
+![ِAllure Report](https://github.com/mariomedhatG/APIAutomationFinalProjectITI/blob/main/report.jpg)
+
+---
+
+## 🤖 Jenkins
+
+Jenkins is an open-source **CI/CD tool** used for automating software development processes.  
+
+## ✅  Key Points
+- **Automation**: Helps automate repetitive tasks like building, testing, and deploying applications.
+- **Extensibility**: Supports plugins to integrate with various tools and technologies.
+- **REST API**: Provides a programmatic interface to interact with Jenkins remotely.
+- **Continuous Integration/Delivery**: Facilitates faster and more reliable software delivery by integrating code changes frequently.
+
+---
+
+## 👥 Authors
+
+- **Nour Allah Khaled**: [LinkedIn](https://www.linkedin.com/in/nour-allah-khaled)
+
+- **Mario Khalil**: [LinkedIn](https://www.linkedin.com/in/mario-khalil-4448201a9/)
+
